@@ -1,0 +1,44 @@
+﻿# 太玄智译 依赖列表
+# Python 3.11+
+
+# Web Framework
+fastapi>=0.109.0
+uvicorn[standard]>=0.27.0
+starlette>=0.35.0
+
+# HTTP Client
+httpx>=0.26.0
+httpcore>=1.0.0
+
+# Database
+sqlalchemy>=2.0.0
+pydantic>=2.5.0
+pydantic-settings>=2.1.0
+
+# PDF Processing
+pymupdf>=1.23.0
+pdfminer.six>=20231228
+
+# Document Generation
+python-docx>=1.1.0
+lxml>=5.1.0
+
+# Translation Engines
+openai>=1.10.0
+anthropic>=0.18.0
+deepl>=1.17.0
+
+# Optional: Local Models
+# ollama>=0.1.0  # 本地模型支持
+
+# Utilities
+python-multipart>=0.0.6
+python-dotenv>=1.0.0
+loguru>=0.7.0
+
+# Development (Optional)
+# pytest>=8.0.0
+# pytest-cov>=4.1.0
+# black>=24.0.0
+# flake8>=7.0.0
+# mypy>=1.8.0

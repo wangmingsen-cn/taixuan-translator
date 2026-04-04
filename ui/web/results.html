@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>翻译结果 - 太玄智译</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="results.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- 顶部导航 -->
+        <header class="app-header">
+            <div class="logo">
+                <h1>太玄智译</h1>
+                <span class="tagline">翻译结果展示</span>
+            </div>
+            <nav class="nav-tabs">
+                <button class="nav-tab active" data-view="bilingual">双语对照</button>
+                <button class="nav-tab" data-view="source">仅原文</button>
+                <button class="nav-tab" data-view="target">仅译文</button>
+                <button class="nav-tab" data-view="stats">统计分析</button>
+            </nav>
+            <div class="header-actions">
+                <select id="chapterFilter" class="select">
+                    <option value="">全部章节</option>
+                </select>
+                <button class="btn btn-primary" id="exportBtn">
+                    <span>📥</span> 导出结果
+                </button>
+            </div>
+        </header>
+
+        <!-- 统计概览 -->
+        <div class="stats-overview">
+            <div class="stat-card">
+                <div class="stat-icon">📄</div>
+                <div class="stat-content">
+                    <span class="stat-value" id="totalCount">1,165</span>
+                    <span class="stat-label">总段落</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">✅</div>
+                <div class="stat-content">
+                    <span class="stat-value success" id="successCount">1,150</span>
+                    <span class="stat-label">缓存命中</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🔄</div>
+                <div class="stat-content">
+                    <span class="stat-value" id="newCount">15</span>
+                    <span class="stat-label">新翻译</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">⚡</div>
+                <div class="stat-content">
+                    <span class="stat-value" id="avgTime">0.8s</span>
+                    <span class="stat-label">处理时间</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🎯</div>
+                <div class="stat-content">
+                    <span class="stat-value success" id="successRate">100%</span>
+                    <span class="stat-label">成功率</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 主内容区 -->
+        <main class="main-content">
+            <!-- 搜索过滤栏 -->
+            <div class="filter-bar">
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="searchInput" placeholder="搜索原文或译文...">
+                </div>
+                <div class="filter-group">
+                    <select id="statusFilter" class="select">
+                        <option value="">全部状态</option>
+                        <option value="success">翻译成功</option>
+                        <option value="cached">缓存命中</option>
+                        <option value="failed">翻译失败</option>
+                    </select>
+                    <select id="engineFilter" class="select">
+                        <option value="">全部引擎</option>
+                        <option value="demo">Demo</option>
+                        <option value="deepseek">DeepSeek</option>
+                        <option value="openai">OpenAI</option>
+                        <option value="ollama">Ollama</option>
+                    </select>
+                </div>
+                <div class="filter-info">
+                    <span id="resultCount">显示 0 条结果</span>
+                </div>
+            </div>
+
+            <!-- 双语对照视图 -->
+            <div class="view-container active" id="bilingualView">
+                <div class="bilingual-list" id="bilingualList">
+                    <!-- 动态生成 -->
+                </div>
+            </div>
+
+            <!-- 仅原文视图 -->
+            <div class="view-container" id="sourceView">
+                <div class="source-list" id="sourceList">
+                    <!-- 动态生成 -->
+                </div>
+            </div>
+
+            <!-- 仅译文视图 -->
+            <div class="view-container" id="targetView">
+                <div class="target-list" id="targetList">
+                    <!-- 动态生成 -->
+                </div>
+            </div>
+
+            <!-- 统计分析视图 -->
+            <div class="view-container" id="statsView">
+                <div class="stats-grid">
+                    <div class="stats-card">
+                        <h3>📊 字符统计</h3>
+                        <div class="chart-placeholder" id="charChart">
+                            <div class="chart-bars" id="charBars"></div>
+                        </div>
+                    </div>
+                    <div class="stats-card">
+                        <h3>⏱️ 处理时间分布</h3>
+                        <div class="time-stats" id="timeStats"></div>
+                    </div>
+                    <div class="stats-card">
+                        <h3>🔧 引擎使用分布</h3>
+                        <div class="engine-distribution" id="engineDist"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 分页 -->
+            <div class="pagination" id="pagination">
+                <button class="btn btn-secondary" id="prevBtn" disabled>上一页</button>
+                <span class="page-info" id="pageInfo">第 1 页 / 共 1 页</span>
+                <button class="btn btn-secondary" id="nextBtn" disabled>下一页</button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast通知 -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="results.js"></script>
+</body>
+</html>

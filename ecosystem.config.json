@@ -1,0 +1,26 @@
+{
+  "apps": [
+    {
+      "name": "taixuan-translator-api",
+      "script": "python",
+      "args": "-m uvicorn taixuan_translator.api.main:app --host 127.0.0.1 --port 8000 --workers 2",
+      "cwd": "C:/Users/29494/.qclaw/workspace",
+      "interpreter": "none",
+      "env": {
+        "PYTHONPATH": "C:/Users/29494/.qclaw/workspace",
+        "PYTHONIOENCODING": "utf-8",
+        "TAIXUAN_LOG_LEVEL": "INFO"
+      },
+      "watch": false,
+      "autorestart": true,
+      "max_restarts": 10,
+      "restart_delay": 3000,
+      "min_uptime": "5s",
+      "max_memory_restart": "512M",
+      "log_date_format": "YYYY-MM-DD HH:mm:ss",
+      "out_file": "C:/Users/29494/.taixuan_translator/logs/pm2-out.log",
+      "error_file": "C:/Users/29494/.taixuan_translator/logs/pm2-err.log",
+      "merge_logs": true
+    }
+  ]
+}
