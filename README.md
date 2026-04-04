@@ -208,4 +208,4 @@ MIT License - 详见 LICENSE 文件
 
 ## 📞 支持
 
-如有问题，请提交 Issue 或联系：taixuan@studio.example.com
+如有问题，请提交 Issue 或联系：294945908@qq.com
